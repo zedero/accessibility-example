@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+
+  <div id="a11y-friendly-dialog" class="__hidden">
+    <div class="backdrop"></div>
+    <div class="content">
+      <button data-close class="close">✖</button>
+      This is an accessible friendly dialog using the html element.
+      <br>
+      <button data-close>AWESOME!</button>
+    </div>
+  </div>
+
+  <header>
+    <nav>
+      <a href="#skip-navigation" title="Click this link to skip straight to the content" class="skip-navigation__link">Straight to content</a>
+      <a href="#skip-navigation" title="Click this link to skip straight to the content" class="skip-navigation__link-bad">Will not be read by a screen-reader</a>
+      <div aria-hidden="true">
+        <code hidden>
+          &lt;nav&gt; <br>
+          &lt;ul class=&quot;menu&quot;&gt;<br>
+          &lt;li class=&quot;menu-item&quot;&gt;<br>
+          &lt;a href=&quot;http://www.planonsoftware.com&quot;&gt;menu item 1&lt;/a&gt;<br>
+          &lt;/li&gt;<br>
+          &lt;li class=&quot;menu-item&quot;&gt;<br>
+          &lt;a href=&quot;http://www.planonsoftware.com&quot;&gt;menu item 2&lt;/a&gt;<br>
+          &lt;/li&gt;<br>
+          &lt;li class=&quot;menu-item&quot;&gt;<br>
+          &lt;a href=&quot;http://www.planonsoftware.com&quot;&gt;menu item 3&lt;/a&gt;<br>
+          &lt;/li&gt;<br>
+          &lt;/ul&gt;<br>
+          &lt;/nav&gt;
+        </code>
+      </div>
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="http://www.planonsoftware.com">menu item 1</a>
+      </li>
+      <li class="menu-item">
+        <a href="http://www.planonsoftware.com">menu item 2</a>
+      </li>
+      <li class="menu-item">
+        <a href="http://www.planonsoftware.com">menu item 3</a>
+      </li>
+    </ul>
+  </nav>
+    <h1>A Semantic accessibility example</h1>
+  </header>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <main>
+        <article>
+          <h2>Article heading</h2>
+          <h3>This page contains some of the most used elements optimized for accessibility</h3>
+          <p>
+            A common misconception is that Accessibility is only for Visualy handicapped users. Although this group normaly provides the biggest technical challenges the other handicapped users should not be forgotten.
+            The impaired users can be split into four groups:
+          </p>
+          <ul>
+            <li>
+              <b>Visual.</b>
+              <br>
+              <span>
+                This can be non-sighted users, users with low-vision, users with obstructed vision, or even simply your aging parents.
+                <ul>
+                  <li>Font resize friendly text.</li>
+                  <li>Enough contrast throughout your site (minimum of 4.5:1 for text and 3:1 for large text) </li>
+                  <li>Design with color blindness in mind. </li>
+                  <li>Usage of correct html attributes (e.g. alt text on images)</li>
+                  <li>Usage of Aria attributes when needed (For example custom elements).</li>
+                </ul>
+              </span>
+            </li>
+            <li>
+              <b>Auditory.</b>
+              <br>
+              <span>
+                The web is a visual medium, but captions and fallbacks for sound-necessary media need to be considered for hearing impaired users.
+                <ul>
+                  <li>Captions for video's.</li>
+                  <li>Transcripts for audio files.</li>
+                </ul>
+              </span>
+            </li>
+            <li>
+              <b>Motor.</b>
+              <br>
+              <span>
+                People with motor impairments typically use a wide range of assistive technology from specialized keyboards, to eye trackers, to using single buttons (a device known as a “switch”) to navigate their computers.
+                <ul>
+                  <li>Large click area's for interactive elements (minimum button size).</li>
+                  <li>Layout can be navigated though with only an keyboard.</li>
+                </ul>
+              </span>
+            </li>
+            <li>
+              <b>Cognitive.</b>
+              <br>
+              <span>
+                Relates to the ease processing of information. (Dyslexia, Autism, Global developmental delay)
+                <ul>
+                  <li>Usage of readable fonts.</li>
+                  <li>Easy to understand text.</li>
+                </ul>
+              </span>
+            </li>
+          </ul>
+          <figure>
+            <img src="https://picsum.photos/300/100/?random"
+                 alt="Awesome, this image has ALT text."
+                 height="150"
+                 width="300"
+            >
+            <figcaption>This image contains alt text <span class="green-text">(good)</span></figcaption>
+          </figure>
+          <figure>
+            <img src="https://picsum.photos/300/100/?random"
+                 height="150"
+                 width="300"
+            >
+            <figcaption>This image is missing alt text <span class="red-text">(bad)</span></figcaption>
+          </figure>
+          <div aria-hidden="true">
+            <code hidden>
+              <span style="color: white;">good</span> <br> <br>
+              &lt;img src=&quot;https://picsum.photos/300/100/?random&quot; alt=&quot;Awesome, this image has ALT text.&quot;&gt;
+            </code>
+          </div>
+          <div aria-hidden="true">
+            <code class="bad" hidden>
+              <span style="color: white;">bad</span> <br> <br>
+              &lt;img src=&quot;https://picsum.photos/300/100/?random&quot;&gt;
+            </code>
+          </div>
+          <hr>
+          <h4>anchors</h4>
+          <a href="http://www.google.com">A anchor used to navigate to an other page or location on this page</a>
+          <a href="http://www.google.com" class="button-look">Anchor</a>
+          <hr>
+          <button class="buttonInteraction" aria-haspopup="true">Button, used for interactions</button>
+          <hr>
+          <h4>Form</h4>
+          <div aria-hidden="true"><button data-code-toggle>toggle code example</button></div>
+          <form>
+            <a name="skip-navigation" aria-hidden="true" class="__hideit" >Navigation skipped</a>
+            <hr>
+            <b>Use for -> id to link a label to an input</b>
+            <div aria-hidden="true">
+              <code hidden>
+                &lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;<br>
+                &lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;textfield&quot;&gt;
+              </code>
+            </div>
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="textfield">
+            <hr>
+
+            <b>Or use an title to create an accessible input</b>
+            <div aria-hidden="true">
+              <code hidden>
+                &lt;span&gt;Last name:&lt;/span&gt; <br>
+                &lt;input title=&quot;Last name&quot; type=&quot;text&quot; name=&quot;textfield&quot;&gt;
+              </code>
+            </div>
+            <span>Last name:</span>
+            <input title="Last name" type="text" name="textfield">
+            <hr>
+
+
+            <b>But do not combine both, it will create redundant speech!</b>
+            <div aria-hidden="true">
+              <code hidden class="bad">
+                &lt;label for=&quot;oopsname&quot;&gt;REDUNDANT LABEL&lt;/label&gt; <br>
+                &lt;input id=&quot;oopsname&quot; type=&quot;text&quot; name=&quot;textfield&quot; title=&quot;REDUNDANT TITLE!&quot;&gt;
+              </code>
+            </div>
+            <label for="oopsname">REDUNDANT LABEL</label>
+            <input id="oopsname" type="text" name="textfield" title="REDUNDANT TITLE!">
+            <hr>
+            <b>You can use an aria-label to overwrite a label tied to an input. This can be usefull for when the label is way to long for a screenreader to read and could be shortened</b>
+            <div aria-hidden="true">
+              <code hidden>
+                &lt;label for=&quot;name2&quot;&gt;This input contains an aria label and will not read what is written here!!&lt;/label&gt; <br>
+                &lt;input id=&quot;name2&quot; type=&quot;text&quot; name=&quot;textfield&quot; aria-label=&quot;Aria overwritten label&quot;&gt;
+              </code>
+            </div>
+            <label for="name2">This input contains an aria label and will not read what is written here!!</label>
+            <input id="name2" type="text" name="textfield" aria-label="Aria overwritten label">
+            <hr>
+            <br />
+
+
+            <div aria-hidden="true">
+              <code hidden>
+                &lt;label for=&quot;name3&quot;&gt; <br> An other input. <br>&lt;b aria-hidden=&quot;true&quot;&gt; <br> This is a required field. (This bold text is hidden for screen readers)<br> &lt;/b&gt;
+                <br> &lt;/label&gt;
+                <br>
+                &lt;input id=&quot;name3&quot; type=&quot;text&quot; aria-required=&quot;true&quot; required name=&quot;textfield&quot;&gt;
+              </code>
+            </div>
+            <label for="name3">An other input. <b aria-hidden="true">This is a required field. (This bold text is hidden for screen readers)</b></label>
+            <input id="name3" type="text" aria-required="true" required name="textfield">
+            <br />
+            <hr>
+            <br />
+
+            <code hidden aria-hidden="true">
+              &lt;label&gt;Enter your address:&lt;/label&gt; <br>
+              &lt;textarea name=&quot;addresstext&quot; title=&quot;Enter your address&quot;&gt;&lt;/textarea&gt;
+            </code>
+            <br>
+            <label>Enter your address:</label><br>
+            <textarea name="addresstext" title="Enter your address"></textarea>
+            <hr>
+            <br />
+
+            <fieldset >
+              <legend>Choose a shipping method:</legend>
+              <input id="overnight" type="radio" name="shipping" value="overnight">
+              <label for="overnight">Overnight</label><br>
+              <input id="twoday" type="radio" name="shipping" value="twoday">
+              <label for="twoday">Two day</label><br>
+              <input id="ground" type="radio" name="shipping" value="ground">
+              <label for="ground">Ground</label>
+            </fieldset>
+
+
+            <select title="To what city do you want to fly!">
+              <optgroup label="Asia">
+                <option value="3">Delhi</option>
+                <option value="4">Hong Kong</option>
+                <option value="8">Mumbai</option>
+                <option value="11">Tokyo</option>
+              </optgroup>
+              <optgroup label="Europe">
+                <option value="1">Amsterdam</option>
+                <option value="5">London</option>
+                <option value="7">Moscow</option>
+              </optgroup>
+            </select>
+
+            <input type="submit" name="submit" value="Submit Search">
+            <button>Reset</button>
+
+          </form>
+        </article>
+        <footer>
+          <!--article footer-->
+        </footer>
+      </main>
+    </div>
+    <div class="col-xs-12 col-sm-4"><aside>
+      <h2>Contact</h2>
+      <address>
+        <a href="mailto:patrick.kersten@planonsoftware.com">patrick.kersten@planonsoftware.com</a><br/>
+        <a href="https://a11yproject.com/">a11y project</a><br/>
+        <a href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb">Accessibility Developer Tools</a><br/>
+        <a href="https://squizlabs.github.io/HTML_CodeSniffer/">HTML Code sniffer Bookmarklet</a><br/>
+        <a href="https://www.nvaccess.org/">Free NVDA screen reader</a><br/>
+      </address>
+    </aside></div>
+  </div>
+
+  <hr>
+
+  <footer>
+    Footer content
+  </footer>
+  <script>
+    "use strict";
+    (function () {
+      const buttons = document.getElementsByClassName("buttonInteraction");
+      const closeBtn = document.querySelectorAll("[data-close]");
+      const dialog = document.getElementById("a11y-friendly-dialog");
+      const codeToggleButton = document.querySelectorAll("[data-code-toggle]");
+
+      const codeblocks = document.querySelectorAll("code");
+
+      buttons[0].addEventListener('click', ()=>{
+        toggleDialog();
+      });
+
+      closeBtn.forEach((btn) => {
+        btn.addEventListener('click', ()=>{
+          toggleDialog();
+        });
+      });
+
+      codeToggleButton.forEach((btn) => {
+        btn.addEventListener('click', ()=>{
+          toggleCodeBlocks();
+        });
+      });
+
+      function toggleCodeBlocks() {
+        codeblocks.forEach((block) => {
+          block.hidden = !block.hidden;
+        })
+      }
+
+      function toggleDialog() {
+        if(dialog.classList.length) {
+          dialog.classList = "";
+        } else {
+          dialog.classList = "__hidden";
+        }
+      }
+
+    })();
+  </script>
+</body>
+</html>

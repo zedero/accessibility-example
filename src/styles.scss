@@ -1,0 +1,139 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@import 'normalize';
+@import 'app/flexboxgrid';
+@import 'indexstyle';
+
+
+$conversion: 'px';
+$px: '(0.8px + 0.05335vmin)';
+$rem: '(0.049rem + 0.05335vmin)';
+@function px($number){
+  @if $conversion == 'px' {
+    // To pixel
+    @return $number + px;
+  } @else if $conversion == 'em'{
+    // To EM
+    @return ($number * 0.0625) + em;
+  } @else if $conversion == 'rem'{
+    // To REM
+    @return ($number/10) + rem;
+  } @else if $conversion == 'rem2'{
+    // To REM with html on px base
+    @return ($number/10) + rem;
+  } @else if $conversion == 'pxvw' {
+    //To px+vw;
+    @return calc(#{$px} * #{$number * .7594});
+  } @else if $conversion == 'remvw' {
+    //To px+vw;
+    @return calc(#{$rem} * #{$number * .9932});
+  }
+}
+
+@mixin font-size($size) {
+  @if $size == '' {
+    $size: 16
+  }
+  @if $size < 0 {
+    $size: 16
+  }
+
+  .px & {
+    font-size: $size + px;
+  }
+
+  .em & {
+    font-size: ($size/10) + em;
+  }
+
+  .rem & {
+    font-size: ($size/10) + rem;
+  }
+
+  .pxvw & {
+    font-size: calc(#{$px} * #{$size * .7594});
+  }
+
+  .remvw & {
+    font-size: calc(#{$rem} * #{$size * .9932});
+  }
+}
+
+@mixin line-height($size) {
+  @if $size == '' {
+    $size: 16
+  }
+  @if $size < 0 {
+    $size: 16
+  }
+
+  .px & {
+    line-height: $size + px;
+  }
+
+  .em & {
+    line-height: ($size/10) + em;
+  }
+
+  .rem & {
+    line-height: ($size/10) + rem;
+  }
+
+  .pxvw & {
+    line-height: calc(#{$px} * #{$size * .7594});
+  }
+
+  .remvw & {
+    line-height: calc(#{$rem} * #{$size * .9932});
+  }
+}
+
+@mixin size($selector, $size) {
+  #{$selector}: $size + px;
+
+  .px & {
+    #{$selector}: $size + px;
+  }
+
+  .em & {
+    #{$selector}: $size/10 + em;
+  }
+
+  .rem & {
+    #{$selector}: $size/10 + rem;
+  }
+}
+
+$font-sm: px(10);
+$font-md: px(16);
+$font-lg: px(26);
+
+html {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin: 0 10px;
+
+  &.html100 {
+    font-size: 100%;
+  }
+
+  &.html625 {
+    font-size: 62.5%;
+  }
+
+  &.html10px {
+    font-size: 10px;
+  }
+
+  &.html16px {
+    font-size: 16px;
+  }
+}
+
+body {
+  @include font-size(-1);
+}

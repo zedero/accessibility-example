@@ -1,0 +1,46 @@
+@import '../styles';
+
+.test-box {
+  margin-top: 20px;
+  background-color: orange;
+  @include size('width', 100);
+  @include size('height', 100);
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
+.blue {
+  background-color: blue;
+  color: white;
+}
+
+.root {
+  margin-top: 20px;
+  @include font-size(16);
+  border: 5px solid red;
+  background-color: lightcoral;
+  padding: 5px;
+}
+
+.nested {
+  @include font-size(16);
+  border: 5px solid blue;
+  background-color: lightblue;
+  padding: 5px;
+}
+
+
+option {
+  color: #595959;
+
+  &.highlight {
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.toggle-button {
+  float: right;
+}

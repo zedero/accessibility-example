@@ -1,0 +1,19 @@
+@import '../../../styles';
+
+.button {
+  margin-top: 30px;
+  background-color: black;
+  color: yellow;
+  text-align: center;
+
+  @include size('width', 500);
+  @include size('height', 30);
+
+}
+
+span {
+  line-height: 30px;
+  font-size: 26px;
+  @include line-height(30);
+  @include font-size(26);
+}
